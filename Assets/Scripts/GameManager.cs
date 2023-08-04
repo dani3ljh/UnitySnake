@@ -7,14 +7,15 @@ public class GameManager : MonoBehaviour {
   [SerializeField] private GameObject square;
   [SerializeField] private Transform squareFolder;
 
+  [Header("Colors")]
+  [SerializeField] private Color snake;
+  [SerializeField] private Color food;
+  [SerializeField] private Color background;
+
   private SpriteRenderer[,] squareRenderers;
 
   private readonly int HEIGHT = 10;
   private readonly int WIDTH = 10;
-
-  [Header("Colors")]
-  [SerializeField] private Color snake;
-  [SerializeField] private Color food;
 
   private float scale;
 
@@ -23,13 +24,19 @@ public class GameManager : MonoBehaviour {
 
     scale = GetSquareScale(HEIGHT);
 
-    for (int y = 0; y < HEIGHT; y++) {
-      squareRenderers[0, y] = Instantiate(
-        square,
-        new Vector3(0, GetYPosition(scale, y)),
-        squareFolder.rotation,
-        squareFolder
-      ).GetComponent<SpriteRenderer>();
+    for (int x = 0; x < WIDTH; x++) {
+      float xValue = x * scale + (scale - WIDTH) / 2f;
+
+      for (int y = 0; y < HEIGHT; y++) {
+        squareRenderers[x, y] = Instantiate(
+          square,
+          new Vector3(xValue, GetYPosition(scale, y)),
+          squareFolder.rotation,
+          squareFolder
+        ).GetComponent<SpriteRenderer>();
+
+        squareRenderers[x, y].color = background;
+      }
     }
 
     // Test code

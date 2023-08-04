@@ -17,12 +17,10 @@ public class GameManager : MonoBehaviour {
   private readonly int HEIGHT = 10;
   private readonly int WIDTH = 10;
 
-  private float scale;
-
   void Start() {
     squareRenderers = new SpriteRenderer[HEIGHT, WIDTH];
 
-    scale = GetSquareScale(HEIGHT);
+    float scale = GetSquareScale(HEIGHT);
 
     for (int x = 0; x < WIDTH; x++) {
       float xValue = x * scale + (scale - WIDTH) / 2f;

@@ -13,19 +13,19 @@ public class DrawManager : MonoBehaviour {
   [SerializeField] private Color background;
 
   private SpriteRenderer[,] squareRenderers;
-  private GameManager gm;
+  private LogicManager lm;
 
   void Start() {
-    gm = GetComponent<GameManager>();
+    lm = GetComponent<LogicManager>();
 
-    squareRenderers = new SpriteRenderer[gm.HEIGHT, gm.WIDTH];
+    squareRenderers = new SpriteRenderer[lm.WIDTH, lm.HEIGHT];
 
-    float scale = GetSquareScale(gm.HEIGHT);
+    float scale = GetSquareScale(lm.HEIGHT);
 
-    for (int x = 0; x < gm.WIDTH; x++) {
-      float xValue = x * scale + (scale - gm.WIDTH) / 2f;
+    for (int x = 0; x < lm.WIDTH; x++) {
+      float xValue = x * scale + (scale - lm.WIDTH) / 2f;
 
-      for (int y = 0; y < gm.HEIGHT; y++) {
+      for (int y = 0; y < lm.HEIGHT; y++) {
         squareRenderers[x, y] = Instantiate(
           square,
           new Vector3(xValue, GetYPosition(scale, y)),

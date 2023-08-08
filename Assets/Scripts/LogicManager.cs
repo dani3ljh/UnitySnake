@@ -15,7 +15,7 @@ class Snake {
 
   public Snake(int width, int height, Direction dir) {
     this.snakeBody = new bool?[width, height];
-    this.dir = dir
+    this.dir = dir;
   }
 }
 

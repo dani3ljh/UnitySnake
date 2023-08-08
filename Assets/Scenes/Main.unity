@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519420032}
+  - component: {fileID: 519420033}
   - component: {fileID: 519420030}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
@@ -162,11 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208129679a8c43744bcc5dfad2e453d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: 7314498012082079789, guid: c7c0cfe6b13da7b4ba4ca5aa62ff79c5, type: 3}
-  squareFolder: {fileID: 714034831}
-  snake: {r: 0.076174736, g: 0.6698113, b: 0, a: 1}
-  food: {r: 1, g: 0, b: 0, a: 1}
-  background: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -224,6 +220,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd080cc2c19b7f44081674b0c172ab0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  square: {fileID: 7314498012082079789, guid: c7c0cfe6b13da7b4ba4ca5aa62ff79c5, type: 3}
+  squareFolder: {fileID: 714034831}
+  snake: {r: 0.05833925, g: 0.6509434, b: 0.05833925, a: 1}
+  food: {r: 0.8490566, g: 0, b: 0, a: 1}
+  background: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
 --- !u!1 &714034830
 GameObject:
   m_ObjectHideFlags: 0

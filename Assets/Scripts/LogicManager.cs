@@ -6,10 +6,14 @@ public class LogicManager : MonoBehaviour {
   public readonly int WIDTH = 10;
   public readonly int HEIGHT = 10;
 
-  public Snake snake = new Snake(WIDTH, HEIGHT, Direction.Right);
+  public Snake snake;
+
+  void Start() {
+    snake = new Snake(WIDTH, HEIGHT, Direction.Right);
+  }
 }
 
-class Snake {
+public class Snake {
   bool?[,] snakeBody;
   Direction dir;
 
@@ -19,7 +23,7 @@ class Snake {
   }
 }
 
-enum Direction {
+public enum Direction {
   Top,
   Right,
   Down,

@@ -8,9 +8,9 @@ public class DrawManager : MonoBehaviour {
   [SerializeField] private Transform squareFolder;
 
   [Header("Colors")]
-  [SerializeField] private Color snake;
-  [SerializeField] private Color food;
-  [SerializeField] private Color background;
+  [SerializeField] private Color snakeColor;
+  [SerializeField] private Color foodColor;
+  [SerializeField] private Color bgColor;
 
   private SpriteRenderer[,] squareRenderers;
   private LogicManager lm;
@@ -23,24 +23,36 @@ public class DrawManager : MonoBehaviour {
     float scale = GetSquareScale(lm.HEIGHT);
 
     for (int x = 0; x < lm.WIDTH; x++) {
-      float xValue = x * scale + (scale - lm.WIDTH) / 2f;
+      float xValue = x * scale - lm.WIDTH * scale / 2f;
 
       for (int y = 0; y < lm.HEIGHT; y++) {
-        squareRenderers[x, y] = Instantiate(
+        Transform tile = Instantiate(
           square,
           new Vector3(xValue, GetYPosition(scale, y)),
           squareFolder.rotation,
           squareFolder
-        ).GetComponent<SpriteRenderer>();
+        ).transform;
 
-        squareRenderers[x, y].color = background;
+        tile.localScale = new Vector3(scale, scale, scale);
+
+        squareRenderers[x, y] = tile
+          .GetChild(0)
+          .gameObject
+          .GetComponent<SpriteRenderer>();
+
+        squareRenderers[x, y].color = bgColor;
       }
     }
 
-    // Test code
-    squareRenderers[0, 0].color = snake;
-    squareRenderers[0, 1].color = food;
-    squareRenderers[0, 2].color = snake;
+    Tick();
+  }
+
+  public void Tick() {
+    for (int i = 0; i < lm.snake.snakeBody.Length; i++) {
+      Point? body = lm.snake.snakeBody[i];
+      if (body == null) break;
+      squareRenderers[body.x, body.y].color = snakeColor;
+    }
   }
 
   private float GetSquareScale(int height) {

@@ -233,11 +233,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd080cc2c19b7f44081674b0c172ab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: 7314498012082079789, guid: c7c0cfe6b13da7b4ba4ca5aa62ff79c5, type: 3}
+  square: {fileID: 6009923270027185394, guid: cbc4552b66143c948a1a15284230d619, type: 3}
   squareFolder: {fileID: 714034831}
-  snake: {r: 0.05833925, g: 0.6509434, b: 0.05833925, a: 1}
-  food: {r: 0.8490566, g: 0, b: 0, a: 1}
-  background: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  snakeColor: {r: 0.009924042, g: 0.764151, b: 0, a: 1}
+  foodColor: {r: 0.8113208, g: 0, b: 0, a: 1}
+  bgColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
